@@ -11,6 +11,12 @@ const argv = require("yargs")
     default: false,
     describe: "La lista de la tabla de la multiplicar",
   })
+  .option("m", {
+    alias: "max",
+    type: "number",
+    default: 10,
+    describe: "El maximo de la tabla de la multiplicar",
+  })
   .check((argv, options) => {
     if (isNaN(argv.b)) {
       throw "La base debe ser un numero";
