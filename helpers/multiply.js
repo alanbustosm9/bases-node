@@ -1,17 +1,18 @@
 const fs = require("fs");
 
-const createFile = async (base = 5) => {
+const createFile = async (base = 5, listar = false) => {
   try {
-    console.log("==========================");
-    console.log(`Tabla de multiplicar del : ${base}`);
-    console.log("==========================");
-
     let outPrint = "";
     for (let i = 1; i <= 10; i++) {
-      outPrint += `${base} x ${i} = ${base * i}\n `;
+      outPrint += `${base} x ${i} = ${base * i}\n`;
     }
 
-    console.log(outPrint);
+    if (listar) {
+      console.log("==========================");
+      console.log(`Tabla de multiplicar del : ${base}`);
+      console.log("==========================");
+      console.log(outPrint);
+    }
 
     fs.writeFileSync(`tabla-${base}.txt`, outPrint);
 
